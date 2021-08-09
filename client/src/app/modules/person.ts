@@ -8,7 +8,10 @@ export class Person {
   chicken : string;
   biography : string;
 
-  constructor(fname: string, lname: string, email: string, phone: string, language: string, chicken: string, biography: string) {
+  picture : string;
+  age : number;
+
+  constructor(fname: string, lname: string, email: string, phone: string, language: string, chicken: string, biography: string, picture: string, age: number) {
     this.fname = fname;
     this.lname = lname;
     this.email = email;
@@ -17,5 +20,8 @@ export class Person {
     this.language = language;
     this.chicken = chicken;
     this.biography = biography;
+
+    this.age = age;
+    this.picture = picture;
   }
 }

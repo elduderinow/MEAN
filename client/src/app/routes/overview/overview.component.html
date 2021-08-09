@@ -1,32 +1,6 @@
 <app-navbar></app-navbar>
 <main class="grid grid-cols-12 gap-5 p-5">
-  <div class="col-span-6 md:col-span-3 lg:col-span-2">
-      <app-cards></app-cards>
+  <div *ngFor="let person of allPersons" class="col-span-6 md:col-span-3 lg:col-span-2">
+      <app-cards [person]=person></app-cards>
   </div>
-
-  <div class="col-span-6 md:col-span-3 lg:col-span-2">
-    <app-cards></app-cards>
-  </div>
-
-  <div class="col-span-6 md:col-span-3 lg:col-span-2">
-    <app-cards></app-cards>
-  </div>
-
-  <div class="col-span-6 md:col-span-3 lg:col-span-2">
-    <app-cards></app-cards>
-  </div>
-
-  <div class="col-span-6 md:col-span-3 lg:col-span-2">
-    <app-cards></app-cards>
-  </div>
-
-  <div class="col-span-6 md:col-span-3 lg:col-span-2">
-    <app-cards></app-cards>
-  </div>
-
-  <div class="col-span-6 md:col-span-3 lg:col-span-2">
-    <app-cards></app-cards>
-  </div>
-
-
 </main>

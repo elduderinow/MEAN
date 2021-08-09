@@ -1,21 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Person} from "../../modules/person";
+import {AddFriendService} from "./add-friend.service";
 
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss']
 })
-export class EditComponent implements OnInit {
-  allPersons:Person[] = []
+  export class EditComponent implements OnInit {
+  private addFriendService: AddFriendService;
+  allPersons: Person[] = []
 
-  person: Person = new Person("", "", "", "", "", "", "");
+  title: string = 'Angular Friends';
+  person: Person = new Person("", "", "", "", "", "", "", "", 0);
 
-
-  constructor() { }
-
-  ngOnInit(): void {
-    console.log(this.person);
+  constructor(addFriendService: AddFriendService) {
+    this.addFriendService = addFriendService;
   }
+
+  ngOnInit() {
+
+  }
+
+  onClick() {
+    this.addFriendService.addFriend(this.person).subscribe((data => JSON.stringify(data)))
+  }
+
 
 }
