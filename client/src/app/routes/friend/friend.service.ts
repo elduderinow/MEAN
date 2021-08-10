@@ -5,19 +5,16 @@ import {Person} from "../../modules/person";
 @Injectable({
   providedIn: 'root'
 })
-export class AddFriendService {
+export class FriendService {
   private http: HttpClient;
-  public url : string = "http://localhost:8080/addFriend";
+  public url : string = "http://localhost:8080/delete";
 
   constructor(http: HttpClient) {
     this.http = http;
   }
 
-  addFriend(x: Person) {
-    return this.http.post(this.url, x)
-  }
-
-  editFriend(x: Person) {
-    return console.log('friend edited ' + x)
+  deleteFriend(id: string) {
+    this.url = `http://localhost:8080/delete/${id}`;
+    return this.http.delete(this.url)
   }
 }

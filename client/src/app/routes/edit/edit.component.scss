@@ -9,5 +9,6 @@
 }
 
 .wrapper.information {
-  height: calc(100vh - (#{$height} * 2.6));
+  //height: calc(100vh - (#{$height} * 2.6));
+  overflow: scroll;
 }

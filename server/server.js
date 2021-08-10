@@ -16,24 +16,17 @@ app.all("/*", function(req, res, next){
 });
 
 
-mongoose.Promise = global.Promise;
-mongoose.connect("mongodb+srv://yarrutdb:Sinterklaas1!@cluster0.yhqgt.mongodb.net/meanEx", (err)=> {
-    if (err) {
-        console.log('Could NOT connect to database:', err)
-    } else {
-        console.log('connected to db')
-    }
+mongoose.connect('mongodb+srv://yarrutdb:Sinterklaas1!@cluster0.yhqgt.mongodb.net/meanEx', {useNewUrlParser: true, useUnifiedTopology: true});
 
-})
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    // we're connected!
+});
 
 const friendsSchema = {fname: String, lname: String, email: String, phone: String, language: String, chicken: String, biography: String, age: Number, picture: String}
 
 const Friends = mongoose.model("Friends", friendsSchema);
-
-
-app.get('/',(req, res)=> {
-    res.send('Hello from server');
-})
 
 
 app.post('/addFriend',(req, res)=> {
@@ -56,6 +49,12 @@ app.get('/allFriends',(req, res)=> {
     Friends.find((e, friends) => {
         res.send(friends);
     });
+})
+
+app.delete('/delete/:id', function (req, res, next){
+    Friends.findByIdAndDelete({_id:req.params.id}).then(function (friend){
+        res.send(friend);
+    })
 })
 
 

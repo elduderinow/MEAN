@@ -3,11 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
+import {AppRoutingModule} from "./app-routing.module";
+
 import { AppComponent } from './app.component';
 import { FriendComponent } from './routes/friend/friend.component';
 import { OverviewComponent } from './routes/overview/overview.component';
-import { LoginComponent } from './routes/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CardsComponent } from './components/cards/cards.component';
@@ -21,7 +21,6 @@ import { EditComponent } from './routes/edit/edit.component';
     AppComponent,
     FriendComponent,
     OverviewComponent,
-    LoginComponent,
     NavbarComponent,
     FooterComponent,
     CardsComponent,
@@ -30,10 +29,10 @@ import { EditComponent } from './routes/edit/edit.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
